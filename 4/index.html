@@ -448,13 +448,14 @@ body.modal-open{overflow:hidden}
 }
 .footer-contacts{
   display:grid;
-  grid-template-columns:minmax(240px,.9fr) minmax(360px,1.45fr) auto;
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:18px;
   align-items:stretch;
   margin-top:30px;
 }
 .contact-card{
   display:flex;
+  min-width:0;
   flex-direction:column;
   justify-content:center;
   gap:8px;
@@ -479,33 +480,13 @@ body.modal-open{overflow:hidden}
   color:#fff;
   font-size:clamp(18px,1.8vw,27px);
   font-weight:950;
-  white-space:nowrap;
+  overflow-wrap:anywhere;
 }
 .contact-url{
   color:#ff9b33;
   font-size:clamp(15px,1.4vw,19px);
   font-weight:800;
   word-break:break-all;
-}
-.qr-card{
-  display:grid;
-  place-items:center;
-  gap:8px;
-  min-width:170px;
-  padding:16px;
-  border-radius:22px;
-  background:#fff;
-  color:var(--ink);
-}
-.qr-card img{
-  width:130px;
-  height:130px;
-  display:block;
-}
-.qr-card span{
-  font-weight:900;
-  font-size:14px;
-  text-align:center;
 }
 .footer-bottom{
   margin-top:26px;
@@ -520,9 +501,6 @@ body.modal-open{overflow:hidden}
   }
   .contact-name{
     white-space:normal;
-  }
-  .qr-card{
-    justify-self:start;
   }
 }
 
@@ -899,11 +877,6 @@ body.modal-open{overflow:hidden}
         <span class="contact-label">Педагог</span>
         <span class="contact-name">Виктория Александровна Манькова</span>
         <span class="contact-url">vk.ru/mankovav</span>
-      </a>
-
-      <a class="qr-card" href="https://vk.ru/krilyamedia" target="_blank" rel="noopener" aria-label="Открыть сообщество Крылья во ВКонтакте">
-        <img src="../vk-krilyamedia-qr.png" alt="QR-код сообщества Крылья">
-        <span>Сканируй → вступай в группу</span>
       </a>
     </div>
 
