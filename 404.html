@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>404 — Крылья</title>
+  <style>
+    :root { --navy: #102a4b; --blue: #246eff; --sky: #e9f7ff; --cream: #fffaf0; --orange: #ff7900; --ink: #17233a; --muted: #61718d; }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; overflow: hidden; color: var(--ink); background: linear-gradient(145deg, #e8f7ff 0%, var(--cream) 56%, #fff0dd 100%); font: 16px/1.55 Inter, Arial, sans-serif; }
+    .scene { position: relative; display: grid; min-height: 100vh; place-items: center; padding: 32px 20px; isolation: isolate; }
+    .cloud { position: absolute; z-index: -1; width: 180px; height: 58px; border-radius: 100px; background: rgba(255,255,255,.62); filter: blur(1px); }
+    .cloud::before, .cloud::after { position: absolute; bottom: 0; border-radius: 50%; background: inherit; content: ''; }
+    .cloud::before { width: 78px; height: 78px; left: 32px; }
+    .cloud::after { width: 100px; height: 100px; right: 22px; }
+    .cloud-one { top: 14%; left: -40px; transform: scale(.72); }
+    .cloud-two { right: -22px; bottom: 13%; transform: scale(1.05); }
+    .card { width: min(690px, 100%); padding: clamp(30px, 7vw, 62px); text-align: center; background: rgba(255,253,249,.88); border: 1px solid rgba(255,255,255,.95); border-radius: 32px; box-shadow: 0 24px 65px rgba(16,42,75,.16); }
+    .mark { width: 78px; height: 78px; margin: 0 auto 20px; display: grid; place-items: center; border-radius: 22px; background: var(--navy); box-shadow: 0 12px 20px rgba(16,42,75,.2); }
+    .mark svg { width: 49px; height: 49px; }
+    .eyebrow { margin: 0 0 2px; color: var(--blue); font-size: 13px; font-weight: 850; letter-spacing: .12em; }
+    h1 { margin: 0; color: var(--navy); font-size: clamp(94px, 21vw, 174px); font-weight: 950; line-height: .85; letter-spacing: -.09em; text-shadow: 5px 5px 0 #d8effd; }
+    h2 { max-width: 500px; margin: 24px auto 10px; color: var(--navy); font-size: clamp(25px, 4vw, 37px); line-height: 1.08; letter-spacing: -.04em; }
+    .lead { max-width: 470px; margin: 0 auto; color: var(--muted); font-size: 18px; }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+    .button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; padding: 12px 20px; border: 2px solid transparent; border-radius: 14px; font-weight: 800; text-decoration: none; transition: transform .18s ease, box-shadow .18s ease; }
+    .button:hover { transform: translateY(-3px); }
+    .button-main { color: #fff; background: var(--blue); box-shadow: 0 8px 16px rgba(36,110,255,.25); }
+    .button-contact { color: var(--navy); background: #fff; border-color: #dce5f2; }
+    .button-contact:hover { box-shadow: 0 8px 16px rgba(16,42,75,.1); }
+    @media (max-width: 480px) { .card { border-radius: 26px; } .actions { flex-direction: column; } .button { width: 100%; } .lead { font-size: 16px; } }
+    @media (prefers-reduced-motion: no-preference) { .mark { animation: float 3.4s ease-in-out infinite; } @keyframes float { 50% { transform: translateY(-8px) rotate(-3deg); } } }
+  </style>
+</head>
+<body>
+  <main class="scene">
+    <div class="cloud cloud-one" aria-hidden="true"></div>
+    <div class="cloud cloud-two" aria-hidden="true"></div>
+    <section class="card" aria-labelledby="page-title">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none"><path d="M17 13v38l31-19L17 13Z" fill="#ff7900" stroke="#ffd27a" stroke-width="3" stroke-linejoin="round"/><path d="M22 22 39 32 22 42" stroke="#fffaf0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p class="eyebrow">КРЫЛЬЯ · ЦИФРОВЫЕ МЕДИАТЕХНОЛОГИИ</p>
+      <h1 id="page-title">404</h1>
+      <h2>Кажется, эта страница улетела не туда</h2>
+      <p class="lead">Пока она ищет верный маршрут, можно вернуться к занятиям или написать Виктории.</p>
+      <div class="actions">
+        <a class="button button-main" href="https://yourlevelup.ru/">На главную</a>
+        <a class="button button-contact" href="https://vk.ru/mankovav" target="_blank" rel="noopener">Контакты Виктории ↗</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
