@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Игра-хлопушка: 20 вопросов о контенте, съёмке и монтаже для объединения «Крылья».">
+<title>Игра-хлопушка | Крылья</title>
+<style>
+:root{--blue:#0c4fa3;--blue2:#1675e5;--dark:#071c35;--dark2:#0d2b4e;--orange:#ff7a00;--orange2:#ff9b33;--ink:#0b2442;--paper:#f7fbff;--white:#fff;--muted:#60748e;--line:#cfe0f2;--good:#0e9f6e;--bad:#d73a49;--shadow:0 18px 50px rgba(4,36,76,.14);--radius:28px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.42}
+button{font:inherit}a{color:inherit}
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:clamp(12px,3vw,28px);padding:10px clamp(14px,4vw,52px);background:rgba(255,255,255,.94);border-bottom:1px solid rgba(12,79,163,.14);backdrop-filter:blur(14px)}
+.course-home{font-size:14px;font-weight:850;text-decoration:none;white-space:nowrap}.course-home:hover{color:var(--blue)}
+.brand{display:grid;place-items:center;width:clamp(44px,6vw,60px);height:clamp(44px,6vw,60px);border-radius:16px;flex:0 0 auto;box-shadow:0 8px 22px rgba(12,79,163,.12);background:linear-gradient(145deg,#fff,#edf6ff);text-decoration:none;margin-right:auto;overflow:hidden}.brand img{width:100%;height:100%;object-fit:cover;display:block}
+.course-menu{position:relative}.course-menu summary{display:flex;align-items:center;gap:10px;padding:11px 15px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--blue);cursor:pointer;list-style:none;font-weight:900;white-space:nowrap}.course-menu summary::-webkit-details-marker{display:none}.course-menu summary:before{content:'☰';font-size:20px;line-height:1}.course-menu[open] summary:before{content:'×'}
+.course-menu nav{position:absolute;top:calc(100% + 9px);right:0;z-index:80;display:grid;width:min(380px,calc(100vw - 28px));padding:9px;border:1px solid var(--line);border-radius:17px;background:#fff;box-shadow:var(--shadow)}
+.course-menu nav a{padding:13px 14px;border-radius:10px;color:var(--ink);font-size:14px;font-weight:800;text-decoration:none}.course-menu nav a:hover,.course-menu nav a[aria-current=page]{background:#eef6ff;color:var(--blue)}
+.panel{position:relative;overflow:hidden;min-height:min(820px,90vh);padding:clamp(48px,8vw,96px) clamp(18px,7vw,92px);display:flex;align-items:center}.panel.compact{min-height:auto}.panel.light{background:linear-gradient(180deg,#fff,#f4f9ff)}.panel.dark{color:#fff;background:radial-gradient(circle at 15% 15%,rgba(22,117,229,.32),transparent 28%),radial-gradient(circle at 86% 76%,rgba(255,122,0,.18),transparent 30%),linear-gradient(145deg,var(--dark),#061425 62%,#0a2747)}
+.panel:before,.panel:after{content:"";position:absolute;pointer-events:none;opacity:.42}.panel.light:before{width:360px;height:360px;right:-120px;top:-150px;border:1px solid rgba(12,79,163,.22);border-radius:50%;box-shadow:0 0 0 36px rgba(12,79,163,.04),0 0 0 72px rgba(255,122,0,.035)}.panel.dark:after{width:420px;height:420px;left:-180px;bottom:-250px;border:1px solid rgba(255,255,255,.13);border-radius:50%;box-shadow:0 0 0 46px rgba(255,255,255,.025),0 0 0 92px rgba(255,122,0,.025)}
+.circuit{position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27240%27%20height%3D%27240%27%20viewBox%3D%270%200%20240%20240%27%20fill%3D%27none%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cg%20stroke%3D%27%232f8cff%27%20stroke-width%3D%271.4%27%20opacity%3D%27.55%27%3E%3Cpath%20d%3D%27M0%2048H70L92%2070H160L182%2048H240%27%2F%3E%3Cpath%20d%3D%27M36%20240V176L60%20152V104H128%27%2F%3E%3Cpath%20d%3D%27M240%20140H176L152%20116V80%27%2F%3E%3Cpath%20d%3D%27M0%20200H48L72%20224H140%27%2F%3E%3Cpath%20d%3D%27M120%200V36L144%2060H208%27%2F%3E%3C%2Fg%3E%3Cg%20stroke%3D%27%23ff7a00%27%20stroke-width%3D%271.4%27%20opacity%3D%27.7%27%3E%3Cpath%20d%3D%27M200%20240V200L176%20176H120%27%2F%3E%3Cpath%20d%3D%27M0%20120H30L50%20100%27%2F%3E%3C%2Fg%3E%3Cg%20stroke-width%3D%271.4%27%3E%3Ccircle%20cx%3D%27128%27%20cy%3D%27104%27%20r%3D%274%27%20stroke%3D%27%232f8cff%27%2F%3E%3Ccircle%20cx%3D%27152%27%20cy%3D%2780%27%20r%3D%273%27%20stroke%3D%27%232f8cff%27%2F%3E%3Ccircle%20cx%3D%27140%27%20cy%3D%27224%27%20r%3D%274%27%20stroke%3D%27%232f8cff%27%2F%3E%3Ccircle%20cx%3D%27208%27%20cy%3D%2760%27%20r%3D%273%27%20stroke%3D%27%232f8cff%27%2F%3E%3Ccircle%20cx%3D%27120%27%20cy%3D%27176%27%20r%3D%274%27%20stroke%3D%27%23ff7a00%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%27100%27%20r%3D%273%27%20stroke%3D%27%23ff7a00%27%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%27%23ff7a00%27%20opacity%3D%27.7%27%3E%3Ccircle%20cx%3D%2792%27%20cy%3D%2770%27%20r%3D%272%27%2F%3E%3Ccircle%20cx%3D%27182%27%20cy%3D%2748%27%20r%3D%272%27%2F%3E%3Ccircle%20cx%3D%2760%27%20cy%3D%27152%27%20r%3D%272%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-size:240px 240px;opacity:.5;-webkit-mask-image:linear-gradient(90deg,transparent 30%,#000 90%);mask-image:linear-gradient(90deg,transparent 30%,#000 90%)}
+.wrap{width:min(1240px,100%);margin:0 auto;position:relative;z-index:1}.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:clamp(14px,1.4vw,19px);font-weight:950;letter-spacing:.09em;text-transform:uppercase;color:var(--orange);margin-bottom:18px}.eyebrow:before{content:"";width:36px;height:3px;background:currentColor;border-radius:99px}
+h1,h2,h3{margin:0;line-height:1.02}h1{overflow-wrap:anywhere;font-size:clamp(42px,7vw,100px);letter-spacing:-.045em}h2{font-size:clamp(32px,5vw,70px);letter-spacing:-.035em}h3{font-size:clamp(23px,2.5vw,36px);letter-spacing:-.02em}.lead{font-size:clamp(20px,2.1vw,31px);max-width:940px;margin:24px 0 0;font-weight:650}.dark .lead{color:#dbeafe}.accent{color:var(--orange)}.blue{color:var(--blue2)}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.pill{padding:10px 15px;border-radius:999px;font-weight:850;background:rgba(255,255,255,.09);color:#fff;border:1px solid rgba(255,255,255,.15)}
+.cta{border:0;border-radius:16px;padding:14px 20px;cursor:pointer;background:var(--blue);color:#fff;font-weight:900;box-shadow:0 10px 26px rgba(12,79,163,.2)}.cta:hover{transform:translateY(-2px)}.cta.orange{background:var(--orange)}
+.game{max-width:760px;margin-top:30px;background:var(--dark);color:#fff;border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:clamp(20px,3vw,34px);box-shadow:var(--shadow)}
+.clap{margin:0 0 20px}.arm{height:24px;border-radius:12px 12px 0 0;background:repeating-linear-gradient(-45deg,var(--orange) 0 22px,var(--dark) 22px 44px);transform-origin:left bottom;transition:transform .25s}.arm.up{transform:rotate(-10deg)}.slate{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 18px;background:#04101f;color:#fff;border-radius:0 0 12px 12px}.slate b{font-size:22px;font-weight:950;color:var(--orange)}.slate span{font-size:14px;color:#a9bfd8;font-weight:800}
+.tl{display:flex;gap:5px;margin:0 0 22px}.tl i{flex:1;height:10px;border-radius:99px;background:rgba(255,255,255,.16)}.tl i.cur{background:var(--orange)}.tl i.ok{background:var(--good)}.tl i.bad{background:var(--bad)}
+.gmeta{display:flex;justify-content:space-between;gap:12px;font-weight:850;color:#a9bfd8;font-size:15px;margin:0 0 12px}
+.gq{font-size:clamp(23px,2.6vw,34px);font-weight:950;line-height:1.12;letter-spacing:-.02em;margin:0 0 20px;color:#fff}
+.glead{font-size:clamp(17px,1.5vw,21px);color:#cdddf0;margin:0 0 20px;font-weight:650}
+.gtag{display:inline-block;margin-bottom:12px;padding:6px 12px;border-radius:999px;background:var(--orange);color:#fff;font-size:13px;font-weight:950;letter-spacing:.06em;text-transform:uppercase}
+.gopts{display:grid;gap:12px}
+.gopt{text-align:left;padding:16px 18px;border:2px solid rgba(255,255,255,.18);border-radius:18px;background:rgba(255,255,255,.06);color:#fff;font-size:clamp(17px,1.5vw,21px);font-weight:800;cursor:pointer;min-height:56px}
+.gopt:disabled{cursor:default}@media(hover:hover){.gopt:not(:disabled):hover{border-color:var(--orange)}}
+.gopt.ok{background:rgba(14,159,110,.24);border-color:#2fcf9a;color:#c9fbe6}.gopt.bad{background:rgba(215,58,73,.24);border-color:#ff6b78;color:#ffd4d8}
+.gfact{margin:18px 0 0;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.08);color:#eaf2ff;font-size:18px;font-weight:700}.gfact b{display:block;margin-bottom:4px}
+.gnext{margin-top:18px}
+.gbig{font-size:clamp(54px,9vw,96px);font-weight:950;line-height:1;color:var(--orange2);letter-spacing:-.04em;margin:6px 0 14px}
+button:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.footer{background:#04101f;color:#dbe8f7}.footer-inner{width:min(1240px,100%);margin:0 auto;padding:clamp(38px,6vw,72px) clamp(18px,7vw,92px)}.footer-kicker{color:var(--orange);font-weight:950;letter-spacing:.08em;text-transform:uppercase;font-size:clamp(14px,1.4vw,18px)}.footer-title{margin-top:10px;color:#fff;font-size:clamp(29px,4vw,52px);font-weight:950;line-height:1.05;letter-spacing:-.03em}.footer-subtitle{margin-top:12px;color:#a9bfd8;font-size:clamp(17px,1.6vw,22px);max-width:780px}.footer-contacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}.contact-card{display:flex;min-width:0;flex-direction:column;justify-content:center;gap:8px;padding:20px;border-radius:22px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);text-decoration:none}.contact-card:hover{background:rgba(255,255,255,.11);border-color:rgba(255,122,0,.6)}.contact-label{color:#8fb2d9;font-size:14px;font-weight:900;text-transform:uppercase;letter-spacing:.06em}.contact-name{overflow-wrap:anywhere;color:#fff;font-size:clamp(18px,1.8vw,27px);font-weight:950}.contact-url{color:#ff9b33;font-size:clamp(15px,1.4vw,19px);font-weight:800;word-break:break-all}.footer-bottom{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);color:#7f9ab7;font-size:14px}
+@media(max-width:900px){.footer-contacts{grid-template-columns:1fr}.panel{min-height:auto}}
+@media(max-width:640px){.course-home{font-size:13px}.course-menu summary{padding:9px 11px;font-size:13px}.panel{padding:52px 18px}.brand{width:44px;height:44px;border-radius:12px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* On phones the active game occupies the visible viewport. */
+.game-exit{display:none}
+@media(max-width:640px){
+ body.game-active{overflow:hidden;overscroll-behavior:none}
+ body.game-active>.topbar,body.game-active .footer,body.game-active main>.panel:not(.game-section){display:none}
+ body.game-active .game-section{padding:0;min-height:0;background:var(--dark)}
+ body.game-active .game-section>.wrap>.eyebrow,body.game-active .game-section>.wrap>h2{display:none}
+ body.game-active .game{position:fixed;inset:0;z-index:90;max-width:none;width:100%;height:100vh;height:100dvh;margin:0;border:0;border-radius:0;box-shadow:none;padding:calc(9px + env(safe-area-inset-top,0px)) 12px calc(9px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:7px;--option-font:15px;--question-font:19px;--fact-font:13px}
+ body.game-active .clap{margin:0;flex:none;padding-top:calc(18vw + 8px)}
+ body.game-active .arm{height:20px;transition:transform .2s ease}
+ body.game-active .slate{padding:6px 9px;gap:7px;align-items:center}
+ body.game-active .slate b{font-size:17px}
+ body.game-active .slate span{font-size:12px}
+ body.game-active .game-exit{display:grid;place-items:center;width:32px;height:32px;flex:none;background:transparent;border:1px solid #60748e;border-radius:8px;color:#fff;font-size:20px;cursor:pointer}
+ body.game-active #gapp{min-height:0;flex:1;display:flex;flex-direction:column;gap:7px;outline:0}
+ body.game-active .tl{margin:0;gap:3px;flex:none}
+ body.game-active .tl i{height:5px}
+ body.game-active .gmeta{margin:0;font-size:12px;flex:none}
+ body.game-active .gtag{margin:0;align-self:flex-start;padding:3px 8px;font-size:10px;flex:none}
+ body.game-active .gq{margin:0;font-size:var(--question-font);line-height:1.16;letter-spacing:0;flex:none}
+ body.game-active .gopts{gap:6px;flex:none}
+ body.game-active .gopt{padding:8px 10px;border-radius:10px;min-height:42px;font-size:var(--option-font);line-height:1.2}
+ body.game-active #fb{margin-top:auto;display:flex;flex-direction:column;gap:7px;flex:none}
+ body.game-active .gfact{margin:0;padding:8px 10px;border-radius:10px;font-size:var(--fact-font);line-height:1.25}
+ body.game-active .gfact b{display:inline;margin:0 5px 0 0}
+ body.game-active .gnext{margin:0;min-height:44px;padding:10px 12px;flex:none;font-size:15px;border-radius:10px;width:100%}
+ body.game-active .cta:hover{transform:none}
+ body.game-active .glead{font-size:14px;line-height:1.3;margin:0}
+ body.game-active .gbig{font-size:54px;margin:3px 0}
+ body.game-active .game[data-density="compact"]{--option-font:14px;--question-font:17px;--fact-font:12px;gap:5px}
+ body.game-active .game[data-density="compact"] #gapp{gap:5px}
+ body.game-active .game[data-density="compact"] .gopt{padding:6px 9px;min-height:38px}
+ body.game-active .game[data-density="compact"] .gfact{padding:6px 9px;line-height:1.2}
+ body.game-active .game[data-density="tight"]{--option-font:13px;--question-font:16px;--fact-font:12px;gap:4px;padding-left:10px;padding-right:10px}
+ body.game-active .game[data-density="tight"] #gapp{gap:4px}
+ body.game-active .game[data-density="tight"] .gopt{padding:5px 8px;min-height:34px}
+ body.game-active .game[data-density="tight"] .gopts{gap:4px}
+ body.game-active .game[data-density="tight"] .gfact{padding:5px 8px;line-height:1.15}
+ body.game-active .game[data-density="tight"] .gnext{min-height:38px;padding:8px 10px}
+}
+</style>
+<link rel="stylesheet" href="../assets/course-navigation.css?v=2cf5fccc644c"></head>
+<body>
+<header class="topbar course-topbar">
+  <a class="course-home" href="https://yourlevelup.ru/">Главная</a>
+  <a class="brand" href="https://wings.yourlevelup.ru/" aria-label="К списку тем Крыльев"><img src="../7/assets/logo.jpg" alt="Логотип Крылья"></a>
+  <details class="course-menu">
+    <summary>Темы</summary>
+    <nav aria-label="Темы Крыльев">
+      <a href="/#monday">Тема 1 - Зачем мы делаем контент?</a>
+      <a href="/#friday">Тема 2 - Для кого мы делаем контент?</a>
+      <a href="/#saturday">Тема 3 - Медиалаборатория</a>
+      <a href="/4/">Тема 4 - Как оформить пост</a>
+      <a href="/5/">Тема 5 - Пост опубликован. Что дальше?</a>
+      <a href="/6/">Тема 6 - Правда или фейк?</a>
+      <a href="/7/">Тема 7 - Как построить хороший кадр</a>
+      <a href="/igra-hlopushka/" aria-current="page">Игра-хлопушка</a>
+    </nav>
+  </details>
+</header>
+
+<main>
+<section class="panel dark" style="min-height:min(560px,80vh)">
+  <div class="circuit" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="eyebrow">Повторяем и играем</div>
+    <h1>ИГРА<span class="accent">-ХЛОПУШКА</span></h1>
+    <p class="lead">20 вопросов о контенте, аудитории, съёмке и монтаже. Вспомни занятия «Крыльев» и узнай несколько любопытных фактов.</p>
+    <div class="pills"><span class="pill">💬 контент и аудитория</span><span class="pill">🎬 съёмка</span><span class="pill">✂️ монтаж</span><span class="pill">🔎 любопытные факты</span></div>
+  </div>
+</section>
+
+<section class="panel light compact game-section">
+  <div class="wrap">
+    <div class="eyebrow">Играем</div>
+    <h2>КТО ТЫ НА <span class="blue">СЪЁМОЧНОЙ ПЛОЩАДКЕ?</span></h2>
+    <div class="game"><div class="clap"><div class="arm" id="arm"></div><div class="slate"><b>Хлопушка</b><span id="cnt">Викторина</span><button class="game-exit" id="exitGame" aria-label="Вернуться к странице" title="Вернуться к странице">×</button></div></div><div id="gapp" tabindex="-1"></div></div>
+  </div>
+</section>
+<section class="panel light course-navigation"><div class="wrap"><nav class="finish-nav" aria-label="Переход между темами"><a class="button secondary" href="/7/">← Тема 7</a><a class="button" href="/#lessons">Все темы →</a></nav></div></section></main>
+
+<footer class="footer"><div class="footer-inner"><div class="footer-kicker">Присоединяйся к нам</div><div class="footer-title">Крылья · цифровые медиатехнологии</div><div class="footer-subtitle">Снимай, монтируй, создавай контент и работай вместе с нашей медиаредакцией.</div><div class="footer-contacts"><a class="contact-card" href="https://vk.ru/krilyamedia" target="_blank" rel="noopener"><span class="contact-label">Сообщество «Крылья»</span><span class="contact-name">VK · Крылья</span><span class="contact-url">vk.ru/krilyamedia</span></a><a class="contact-card" href="https://vk.ru/mankovav" target="_blank" rel="noopener"><span class="contact-label">Педагог</span><span class="contact-name">Виктория Александровна Манькова</span><span class="contact-url">vk.ru/mankovav</span></a></div><div class="footer-bottom">ДДЮТ Выборгского района Санкт-Петербурга · 2026</div></div></footer>
+
+<script>
+const Q=[
+  {
+    "q": "Что означает команда «Мотор!» на съёмочной площадке?",
+    "o": [
+      "Участники покидают съёмочную площадку",
+      "Осветители отключают свет на площадке",
+      "Начинается запись изображения и звука",
+      "Команда заканчивает съёмочный день"
+    ],
+    "f": "Сразу после неё хлопают хлопушкой с номером дубля: так при монтаже легко совместить звук и картинку.",
+    "correct": 2
+  },
+  {
+    "q": "Что такое «дубль»?",
+    "o": [
+      "Одна попытка снять сцену",
+      "Название готового фильма",
+      "Тип объектива",
+      "Помощник режиссёра"
+    ],
+    "f": "Сцену часто снимают несколько раз, а при монтаже выбирают лучший дубль.",
+    "correct": 0
+  },
+  {
+    "q": "Ты снял, как друг с третьей попытки забросил мяч в кольцо. Какой текст честно описывает видео?",
+    "o": [
+      "Попал с первой попытки!",
+      "Ни разу не промахнулся!",
+      "Побил мировой рекорд!",
+      "Три попытки, и мяч в кольце!"
+    ],
+    "f": "Подпись должна соответствовать тому, что произошло. Удачная попытка после двух промахов тоже может стать интересным сюжетом.",
+    "practice": true,
+    "correct": 3
+  },
+  {
+    "fun": 1,
+    "q": "Каким предметом можно имитировать стук лошадиных копыт?",
+    "o": [
+      "Настоящими лошадьми в студии",
+      "Половинками кокосовых орехов",
+      "Деревянными ложками",
+      "Резиновыми мячами"
+    ],
+    "f": "Звукорежиссёры стучат половинками кокосов по разным поверхностям. Такие шумы называют фоли, их записывают отдельно от съёмки.",
+    "correct": 1
+  },
+  {
+    "q": "Что такое таймлайн в программе для монтажа?",
+    "o": [
+      "Шкала размещения клипов",
+      "Список титров готового ролика",
+      "Эффект замедления сцены сцены сцены сцены сцены",
+      "Папка с исходными видео"
+    ],
+    "f": "На таймлайне по порядку лежат видео, музыка и звук. Двигая их, вы и «собираете» ролик.",
+    "correct": 0
+  },
+  {
+    "q": "Нужно объяснить зрителю, как сложить бумажный самолётик. Что лучше снять?",
+    "o": [
+      "Общий план комнаты с ведущим",
+      "Лицо ведущего во время объяснения",
+      "Руки и бумагу на каждом шаге",
+      "Готовый самолётик с разных сторон"
+    ],
+    "f": "Покажи действия достаточно близко, чтобы зритель видел сгибы и мог повторить каждый шаг.",
+    "practice": true,
+    "correct": 2
+  },
+  {
+    "q": "Какое соотношение сторон у обычного экрана телевизора и YouTube?",
+    "o": [
+      "4:3",
+      "16:9",
+      "1:1",
+      "9:16"
+    ],
+    "f": "16:9 сегодня стандарт. Для Reels и Shorts снимают вертикально, в 9:16.",
+    "correct": 1
+  },
+  {
+    "fun": 1,
+    "q": "Про что было самое первое видео, загруженное на YouTube?",
+    "o": [
+      "Про котика",
+      "Про футбольный матч",
+      "Про школьный урок",
+      "Про слонов в зоопарке"
+    ],
+    "f": "Ролик называется «Me at the zoo», его выложили в 2005 году. В нём короткий рассказ о слонах в зоопарке.",
+    "correct": 3
+  },
+  {
+    "q": "Снимаешь обзор настольной игры для новичков. Что стоит объяснить в начале?",
+    "o": [
+      "Редкие исключения из правил игры",
+      "Итоги всех своих предыдущих партий",
+      "Цель игры и основные действия игрока",
+      "Историю выпуска разных версий игры"
+    ],
+    "f": "Новичку сначала нужно понять, что делать и как победить. Подробные исключения удобнее разбирать после знакомства с основными правилами.",
+    "practice": true,
+    "correct": 2
+  },
+  {
+    "q": "Сколько кадров в секунду составляет классическая частота кино?",
+    "o": [
+      "25",
+      "24",
+      "30",
+      "60"
+    ],
+    "f": "24 кадра дают привычный «киношный» вид. Для ТВ и интернета часто берут 25 или 30.",
+    "correct": 1
+  },
+  {
+    "q": "Что такое b-roll?",
+    "o": [
+      "Главный кадр с ответом героя",
+      "Музыка под основным рассказом",
+      "Название режима записи камеры",
+      "Перебивки к основному рассказу"
+    ],
+    "f": "Это «перебивки»: они прячут склейки и показывают то, о чём говорит герой.",
+    "correct": 3
+  },
+  {
+    "q": "В афише игрового турнира указаны название, дата и место. Чего не хватает человеку, который хочет участвовать?",
+    "o": [
+      "Инструкции, как записаться",
+      "Списка любимых игр организатора",
+      "Ещё нескольких ярких картинок",
+      "Рассказа об истории компьютеров"
+    ],
+    "f": "После прочтения должно быть понятно, что делать дальше: где зарегистрироваться или кому написать.",
+    "practice": true,
+    "correct": 0
+  },
+  {
+    "fun": 1,
+    "q": "Что при сжимании помогает имитировать скрип шагов по снегу?",
+    "o": [
+      "Записывают настоящий снег",
+      "Сжимают пакет с крахмалом",
+      "Хрустят чипсами",
+      "Рвут бумагу"
+    ],
+    "f": "Если мять крахмал в руках, получается звук, очень похожий на скрип снега. Записывать настоящий снег хлопотно, а крахмал всегда под рукой.",
+    "correct": 1
+  },
+  {
+    "q": "Зачем нужен петличный микрофон?",
+    "o": [
+      "Чтобы мягко подсветить лицо героя",
+      "Чтобы удерживать камеру устойчиво",
+      "Чтобы записать изображение героя",
+      "Чтобы лучше записать речь героя"
+    ],
+    "f": "Микрофон крепят на одежду. Он стоит близко к голосу, поэтому шума от комнаты меньше.",
+    "correct": 3
+  },
+  {
+    "q": "Появилось видео: огромная акула плавает по затопленной улице. Что поможет проверить его?",
+    "o": [
+      "Исходная публикация и её контекст",
+      "Число восторженных комментариев",
+      "Громкость тревожной музыки",
+      "Количество пересылок в чатах"
+    ],
+    "f": "Выясни, откуда взялось видео, где и когда оно снято, не было ли изменено. Реакции зрителей сами по себе не подтверждают его достоверность.",
+    "practice": true,
+    "correct": 0
+  },
+  {
+    "q": "Что такое «правило третей»?",
+    "o": [
+      "Съёмка одной сцены тремя камерами",
+      "Обязательное деление ролика на три сцены",
+      "Сетка и размещение героя по её линиям",
+      "Съёмка каждой сцены ровно в три дубля"
+    ],
+    "f": "Сетка делит кадр на девять частей. Линии и их пересечения помогают выбрать положение героя. Центр тоже подходит, например для симметричного кадра.",
+    "correct": 2
+  },
+  {
+    "fun": 1,
+    "q": "В мультфильме 24 кадра в секунду. Один рисунок показывают один-два кадра. Сколько рисунков нужно на секунду?",
+    "o": [
+      "От 2 до 4",
+      "От 36 до 48",
+      "От 60 до 120",
+      "От 12 до 24"
+    ],
+    "f": "При смене рисунка каждый кадр получается 24 рисунка в секунду, каждые два кадра: 12. В других техниках число рисунков может отличаться.",
+    "correct": 3
+  },
+  {
+    "q": "Ты публикуешь подсказку, как найти вход на выставку. Какой кадр будет полезнее посетителю?",
+    "o": [
+      "Вход с вывеской и заметным ориентиром",
+      "Красивое небо над зданием выставки",
+      "Крупный план билета в руке посетителя",
+      "Селфи автора возле стены здания"
+    ],
+    "f": "Кадр выбираем под задачу публикации. Вывеска и ориентир помогут человеку узнать нужный вход на месте.",
+    "practice": true,
+    "correct": 0
+  },
+  {
+    "q": "Что показывает крупный план?",
+    "o": [
+      "Всю площадку вместе с героями",
+      "Героя целиком вместе с фоном",
+      "Лицо или небольшую деталь",
+      "Несколько героев в полный рост"
+    ],
+    "f": "Крупным планом показывают эмоции: глаза, улыбку, руки.",
+    "correct": 2
+  },
+  {
+    "q": "Кто представил свой «Синематограф» на знаменитом платном сеансе в Париже в 1895 году?",
+    "o": [
+      "Братья Уорнер",
+      "Братья Люмьер",
+      "Стивен Спилберг",
+      "Чарли Чаплин"
+    ],
+    "f": "Это случилось в Париже. Фильмы тогда шли около минуты, но зрители были в восторге.",
+    "correct": 1
+  }
+];
+const app=document.getElementById('gapp'),arm=document.getElementById('arm'),cnt=document.getElementById('cnt');
+function clap(){arm.classList.add('up');setTimeout(()=>arm.classList.remove('up'),450)}
+let i=0,score=0,res=[],answered=false,answerSlots=[];
+function resetGame(){i=0;score=0;res=[];answered=false;answerSlots=shuffle(Array.from({length:Q.length},(_,k)=>k%4))}
+function shuffle(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function tl(){return '<div class="tl" aria-hidden="true">'+Q.map((_,k)=>'<i class="'+(res[k]||(k===i&&i<Q.length?'cur':''))+'"></i>').join('')+'</div>'}
+function intro(){
+  document.body.classList.remove('game-active');
+  resetGame();cnt.textContent='Викторина';
+  app.innerHTML=tl()+'<h3 class="gq">'+Q.length+' вопросов о контенте, съёмке и монтаже</h3><p class="glead">20 вопросов, один ответ на каждый. Правильный ответ приносит 1 балл и 5%. Максимум: 20 баллов и 100%. После выбора появится пояснение. Игровое звание зависит от результата.</p><button class="cta orange" id="go">Начать игру</button>';
+  document.getElementById('go').onclick=()=>{clap();show()};
+}
+function show(){
+  document.body.classList.add('game-active');
+  answered=false;
+  const d=Q[i];
+  const opts=shuffle(d.o.filter((_,k)=>k!==d.correct).map(t=>({t,ok:false})));
+  opts.splice(answerSlots[i],0,{t:d.o[d.correct],ok:true});
+  cnt.textContent='Вопрос '+(i+1)+' из '+Q.length;
+  app.innerHTML=tl()+'<div class="gmeta"><span>Верно: '+score+' из '+Q.length+' · '+Math.round(score/Q.length*100)+'%</span></div>'+(d.fun?'<span class="gtag">Любопытный факт</span>':'')+'<h3 class="gq">'+d.q+'</h3><div class="gopts" id="opts"></div><div id="fb" aria-live="polite"></div>';
+  app.focus({preventScroll:true});
+  const box=document.getElementById('opts');
+  opts.forEach(o=>{const b=document.createElement('button');b.className='gopt';b.textContent=o.t;b._ok=o.ok;b.onclick=()=>pick(b,o,d);box.appendChild(b)});
+  fitMobileGame();
+}
+function pick(b,o,d){
+  if(answered)return;
+  answered=true;
+  document.querySelectorAll('.gopt').forEach(x=>{x.disabled=true;if(x._ok)x.classList.add('ok')});
+  if(!o.ok)b.classList.add('bad');
+  res[i]=o.ok?'ok':'bad';if(o.ok)score++;clap();
+  app.querySelector('.tl').outerHTML=tl();
+  app.querySelector('.gmeta').textContent='Верно: '+score+' из '+Q.length+' · '+Math.round(score/Q.length*100)+'%';
+  const last=i===Q.length-1;
+  document.getElementById('fb').innerHTML='<p class="gfact"><b>'+(o.ok?'Верно!':'Не совсем.')+'</b>'+d.f+'</p><button class="cta gnext" id="nx">'+(last?'Показать результат':'Далее')+'</button>';
+  document.getElementById('nx').onclick=()=>{i++;last?end():show()};
+  fitMobileGame();
+}
+function end(){
+  const p=score/Q.length;
+  const r=p===1?'Режиссёр':p>=0.8?'Оператор-постановщик':p>=0.5?'Помощник оператора':'Стажёр на площадке';
+  const m=p===1?'Все 20 ответов верные. Отличный результат!':p>=.8?'Хорошо разобрался! Перечитай пояснения к ошибкам и попробуй ещё раз.':p>=.5?'Основа уже есть. Повтори вопросы, в которых ошибся, и сделай ещё один дубль.':'Каждый ролик начинается с первого дубля. Загляни в темы и попробуй снова.';
+  cnt.textContent='Готово';
+  app.innerHTML=tl()+'<p class="gmeta"><span>Ваш результат</span></p><div class="gbig">'+Math.round(p*100)+'%</div><p class="glead">'+score+' из '+Q.length+' правильных ответов</p><h3 class="gq">'+r+'</h3><p class="glead">'+m+'</p><p class="glead">Звания в игре: 0–9 баллов (0–45%) • стажёр; 10–15 (50–75%) • помощник оператора; 16–19 (80–95%) • оператор-постановщик; 20 (100%) • режиссёр.</p><button class="cta orange" id="again">Играть ещё раз</button>';
+  app.focus({preventScroll:true});
+  document.getElementById('again').onclick=()=>{clap();resetGame();show()};
+  fitMobileGame();
+}
+function fitMobileGame(){
+  if(!window.matchMedia('(max-width:640px)').matches)return;
+  requestAnimationFrame(()=>{
+    const game=app.closest('.game');
+    game.dataset.density='normal';
+    if(app.scrollHeight>app.clientHeight+1)game.dataset.density='compact';
+    if(app.scrollHeight>app.clientHeight+1)game.dataset.density='tight';
+  });
+}
+document.getElementById('exitGame').onclick=()=>{intro();app.scrollIntoView({block:'center',behavior:'instant'})};
+window.addEventListener('resize',fitMobileGame);
+window.visualViewport?.addEventListener('resize',fitMobileGame);
+intro();
+</script>
+</body>
+</html>
