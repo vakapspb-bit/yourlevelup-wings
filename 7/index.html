@@ -86,24 +86,9 @@ h1,h2,h3{margin:0;line-height:1.02}h1{font-size:clamp(42px,7vw,100px);letter-spa
 }
 
 </style>
-<link rel="stylesheet" href="../assets/course-navigation.css?v=2cf5fccc644c"></head>
+<link rel="stylesheet" href="../assets/course-navigation.css?v=2cf5fccc644c"><link rel="stylesheet" href="/assets/course-chrome.css?v=lesson9"></head>
 <body>
-<header class="topbar">
-  <a class="course-home" href="/">← Все темы</a>
-  <a class="brand" href="/" aria-label="Крылья"><img src="assets/logo.jpg" alt="Логотип Крылья"></a>
-  <details class="course-menu">
-    <summary>Темы</summary>
-    <nav aria-label="Темы Крыльев">
-      <a href="/#monday">Тема 1 — Зачем мы делаем контент?</a>
-      <a href="/#friday">Тема 2 — Для кого мы делаем контент?</a>
-      <a href="/#saturday">Тема 3 — Медиалаборатория</a>
-      <a href="/4/">Тема 4 — Как оформить пост</a>
-      <a href="/5/">Тема 5 — Пост опубликован. Что дальше?</a>
-      <a href="/6/">Тема 6 — Правда или фейк?</a>
-      <a href="/7/" aria-current="page">Тема 7 — Как построить хороший кадр</a>
-    <a href="/8/">Тема 8 - Создаём стикеры</a><a href="/igra-hlopushka/">Игра-хлопушка</a></nav>
-  </details>
-</header>
+<header class="topbar course-topbar"><a class="course-home" href="https://yourlevelup.ru/">Главная</a><a class="brand" href="/" aria-label="К списку тем Крыльев"><img src="/7/assets/logo.jpg" alt="Логотип Крылья" width="52" height="52"></a><details class="course-menu"><summary>Темы</summary><nav aria-label="Темы Крыльев"><a href="/#monday">Тема 1 - Зачем мы делаем контент?</a><a href="/#friday">Тема 2 - Для кого мы делаем контент?</a><a href="/#saturday">Тема 3 - Медиалаборатория</a><a href="/4/">Тема 4 - Как оформить пост, чтобы его хотелось читать</a><a href="/5/">Тема 5 - Пост опубликован. Что дальше?</a><a href="/6/">Тема 6 - Правда или фейк?</a><a href="/7/" aria-current="page">Тема 7 - Как построить хороший кадр</a><a href="/8/">Тема 8 - Создаём стикеры</a><a href="/9/">Тема 9 - Моя фотоистория</a><a href="/igra-hlopushka/">Игра-хлопушка</a></nav></details></header>
 
 <main>
 <section class="panel dark">
@@ -302,7 +287,29 @@ h1,h2,h3{margin:0;line-height:1.02}h1{font-size:clamp(42px,7vw,100px);letter-spa
 </section>
 <section class="panel light course-navigation"><div class="wrap"><nav class="finish-nav" aria-label="Переход между темами"><a class="button secondary" href="/6/">← Тема 6</a><a class="button" href="/#lessons">Все темы →</a></nav></div></section></main>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-kicker">Присоединяйся к нам</div><div class="footer-title">Крылья · цифровые медиатехнологии</div><div class="footer-subtitle">Снимай, монтируй, создавай контент и работай вместе с нашей медиаредакцией.</div><div class="footer-contacts"><a class="contact-card" href="https://vk.ru/krilyamedia" target="_blank" rel="noopener"><span class="contact-label">Сообщество «Крылья»</span><span class="contact-name">VK · Крылья</span><span class="contact-url">vk.ru/krilyamedia</span></a><a class="contact-card" href="https://vk.ru/mankovav" target="_blank" rel="noopener"><span class="contact-label">Педагог</span><span class="contact-name">Виктория Александровна Манькова</span><span class="contact-url">vk.ru/mankovav</span></a></div><div class="footer-bottom">ДДЮТ Выборгского района Санкт-Петербурга · 2026</div></div></footer>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-kicker">Присоединяйся к нам</div>
+    <div class="footer-title">Крылья · цифровые медиатехнологии</div>
+    <div class="footer-subtitle">Снимай, монтируй, создавай контент и работай вместе с нашей медиаредакцией.</div>
+
+    <div class="footer-contacts">
+      <a class="contact-card" href="https://vk.ru/krilyamedia" target="_blank" rel="noopener">
+        <span class="contact-label">Сообщество «Крылья»</span>
+        <span class="contact-name">VK · Крылья</span>
+        <span class="contact-url">vk.ru/krilyamedia</span>
+      </a>
+
+      <a class="contact-card" href="https://vk.ru/mankovav" target="_blank" rel="noopener">
+        <span class="contact-label">Педагог</span>
+        <span class="contact-name">Виктория Александровна Манькова</span>
+        <span class="contact-url">vk.ru/mankovav</span>
+      </a>
+    </div>
+
+    <div class="footer-bottom">ДДЮТ Выборгского района Санкт-Петербурга · 2026</div>
+  </div>
+</footer>
 
 <script>
 document.querySelectorAll('.check').forEach(btn=>btn.addEventListener('click',()=>btn.classList.toggle('done')));
